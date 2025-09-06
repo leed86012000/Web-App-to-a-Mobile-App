@@ -96,3 +96,24 @@ cordova build android
 For iOS:
 
 cordova build ios
+
+Fix your npm permissions
+1. Create a new directory for global packages in your home folder.
+mkdir ~/.npm-global
+
+2.Configure npm to use this new directory.
+npm config set prefix '~/.npm-global'
+
+3.Add the new directory to your system's PATH. This allows your shell to find the executables of the packages you install globally.
+Open your shell's profile file (e.g., ~/.zshrc or ~/.bash_profile).
+
+4.Add this line to the end of the file:
+export PATH=~/.npm-global/bin:$PATH
+
+Save the file and close it.
+
+5.Reload your shell profile by running:
+source ~/.zshrc
+# or
+source ~/.bash_profile
+After following one of these options, you should be able to run npm install -g expo-cli successfully without any permission errors.

@@ -1,0 +1,7 @@
+On terminal, Create a folder
+1. cd ~ ->Go to home directory where you want to create a folder.
+2. mkdir project name -> Create a new folder
+3. cd project name -> Move into a new folder
+4. nano App.js  -> call nano editor 
+5. Paste the code
+6. Ctrl+X then Y and then Enter -> To save the file and exit

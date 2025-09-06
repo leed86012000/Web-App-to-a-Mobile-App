@@ -1,0 +1,43 @@
+import React from 'react';
+import { SafeAreaView, StyleSheet, StatusBar } from 'react-native';
+import { WebView } from 'react-native-webview';
+
+// The URL of the website you want to wrap.
+const KOREANLC_URL = 'https://koreanlc.com';
+
+/**
+ * Main App component that renders a WebView of Koreanlc.com.
+ * This component is designed to be the entry point for a React Native app
+ * that displays a website within a native container.
+ */
+const App = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <StatusBar barStyle="dark-content" />
+      <WebView
+        source={{ uri: KOREANLC_URL }}
+        style={styles.webview}
+        // Optional: Add some props to handle navigation and errors.
+        onLoadStart={() => console.log('Website is loading...')}
+        onLoadEnd={() => console.log('Website loaded successfully!')}
+        onError={(syntheticEvent) => {
+          const { nativeEvent } = syntheticEvent;
+          console.warn('WebView error: ', nativeEvent.description);
+        }}
+      />
+    </SafeAreaView>
+  );
+};
+
+// Basic styling for the component.
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  webview: {
+    flex: 1,
+  },
+});
+
+export default App;
